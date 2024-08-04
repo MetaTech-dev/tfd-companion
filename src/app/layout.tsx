@@ -22,9 +22,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark">
           <div className="flex h-screen w-screen flex-col overflow-hidden">
             <Header />
-            <main className="flex flex-col items-center container">
-              {children}
-            </main>
+            {children}
           </div>
         </ThemeProvider>
       </body>

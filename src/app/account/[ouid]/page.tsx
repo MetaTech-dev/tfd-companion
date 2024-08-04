@@ -20,7 +20,7 @@ export default async function AccountPage({
   const accountExternalComponentData =
     await getAccountExternalComponent(decodedouid);
   return (
-    <div className="flex flex-wrap gap-4">
+    <main className="flex flex-col items-center gap-4 container overflow-auto">
       <Card>
         <CardHeader>
           <CardTitle>Account: {accountData.user_name}</CardTitle>
@@ -188,6 +188,6 @@ export default async function AccountPage({
           </CardContent>
         </Card>
       )}
-    </div>
+    </main>
   );
 }

@@ -58,7 +58,7 @@ export default async function DescendantPage({
   }
 
   return (
-    <>
+    <main className="flex flex-col items-center container overflow-auto">
       <h1 className="text-2xl font-bold mb-4">Descendant Metadata</h1>
       <DescendantSelect
         descendants={descendants}
@@ -119,6 +119,6 @@ export default async function DescendantPage({
           ))}
         </div>
       </div>
-    </>
+    </main>
   );
 }

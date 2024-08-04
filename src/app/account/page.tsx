@@ -21,7 +21,7 @@ export default function AccountPage() {
   }
 
   return (
-    <>
+    <main className="flex flex-col items-center container overflow-auto">
       <h1 className="text-2xl font-bold mb-4">Account</h1>
       <form action={handleSubmit} className="flex flex-col gap-4">
         <label htmlFor="userName" className="text-sm font-medium">
@@ -37,6 +37,6 @@ export default function AccountPage() {
         />
         <Button type="submit">Submit</Button>
       </form>
-    </>
+    </main>
   );
 }
