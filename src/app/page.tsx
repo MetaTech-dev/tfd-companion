@@ -1,39 +1,15 @@
-import { getAccountId } from "@/data-sources/nexon/account";
-import Link from "next/link";
-import { redirect } from "next/navigation";
-
-// this page should take user name as input and then redirect to account page with user name
 export default function HomePage() {
-  async function handleSubmit(formData: FormData) {
-    "use server";
-
-    const rawFormData = {
-      userName: formData.get("userName"),
-    };
-    if (!rawFormData.userName) {
-      return redirect("/");
-    }
-    const ouid = await getAccountId(rawFormData.userName?.toString());
-
-    return redirect(`/account/${ouid}`);
-  }
-
   return (
-    <>
-      <h1>Home</h1>
-      <p>View Account</p>
-      <form action={handleSubmit}>
-        <label htmlFor="userName">User Name</label>
-        <input
-          type="text"
-          name="userName"
-          id="userName"
-          required
-          pattern="^[a-zA-Z0-9_]+#[0-9]+$"
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <Link href="/metadata">Metadata</Link>
-    </>
+    <div className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold mb-4">
+        The First Descendant Item Manager
+      </h1>
+      <p>
+        TFDIM is a tool that allows you to view your{" "}
+        <span className="font-bold italic">The First Descendant Game</span>{" "}
+        account and items. We&apos;ll be adding more features over time.
+      </p>
+      <p>Choose an option from the menu to get started.</p>
+    </div>
   );
 }

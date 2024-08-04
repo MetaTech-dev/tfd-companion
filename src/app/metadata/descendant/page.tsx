@@ -59,7 +59,7 @@ export default async function DescendantPage({
 
   return (
     <>
-      <h1>Descendant Metadata</h1>
+      <h1 className="text-2xl font-bold mb-4">Descendant Metadata</h1>
       <DescendantSelect
         descendants={descendants}
         selectedDescendantId={selectedDescendantId}
