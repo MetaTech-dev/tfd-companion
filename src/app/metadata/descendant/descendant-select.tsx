@@ -10,12 +10,12 @@ import {
 import { Input } from "@/components/ui/input";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { NexonDescendantMetadata } from "@/data-sources/nexon/metadata";
+import { MetadataDescendant } from "@/types/metadata";
 
 interface DescendantSelectProps {
   selectedDescendantId: string;
   selectedLevel: string;
-  descendants: NexonDescendantMetadata[];
+  descendants: MetadataDescendant[];
   levels: number[];
 }
 
