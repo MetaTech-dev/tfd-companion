@@ -1,7 +1,4 @@
-import {
-  getDescendantMetadata,
-  NexonDescendantMetadata,
-} from "@/data-sources/nexon/metadata";
+import { getMetadataDescendant } from "@/data-sources/nexon/metadata";
 import DescendantSelect from "./descendant-select";
 import {
   Card,
@@ -12,15 +9,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import { MetadataDescendant } from "@/types/metadata";
 
 export default async function DescendantPage({
   searchParams,
 }: {
   searchParams: { descendantId?: string; level?: string };
 }) {
-  const descendants =
-    (await getDescendantMetadata()) as NexonDescendantMetadata[];
-  console.log("descendants", descendants);
+  const descendants = (await getMetadataDescendant()) as MetadataDescendant[];
 
   let selectedDescendantId: string | undefined;
   if (searchParams && searchParams["descendantId"]) {

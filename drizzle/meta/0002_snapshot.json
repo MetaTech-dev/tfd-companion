@@ -1,0 +1,860 @@
+{
+  "id": "7d498771-6e77-450d-80d1-158bc0d3b01c",
+  "prevId": "b6cf7383-805c-423f-af0a-f1515487f636",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.metadata_descendant": {
+      "name": "metadata_descendant",
+      "schema": "",
+      "columns": {
+        "descendant_id": {
+          "name": "descendant_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "descendant_name": {
+          "name": "descendant_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descendant_image_url": {
+          "name": "descendant_image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_descendant_skill": {
+      "name": "metadata_descendant_skill",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "skill_type": {
+          "name": "skill_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_name": {
+          "name": "skill_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "element_type": {
+          "name": "element_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arche_type": {
+          "name": "arche_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_image_url": {
+          "name": "skill_image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_description": {
+          "name": "skill_description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metadata_descendant_id": {
+          "name": "metadata_descendant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_descendant_stat": {
+      "name": "metadata_descendant_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "descendant_id": {
+          "name": "descendant_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_descendant_stat_stat_detail": {
+      "name": "metadata_descendant_stat_stat_detail",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "stat_type": {
+          "name": "stat_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stat_value": {
+          "name": "stat_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metadata_descendant_stat_id": {
+          "name": "metadata_descendant_stat_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "metadata_descendant_stat_stat_detail_metadata_descendant_stat_id_metadata_descendant_stat_id_fk": {
+          "name": "metadata_descendant_stat_stat_detail_metadata_descendant_stat_id_metadata_descendant_stat_id_fk",
+          "tableFrom": "metadata_descendant_stat_stat_detail",
+          "tableTo": "metadata_descendant_stat",
+          "columnsFrom": [
+            "metadata_descendant_stat_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_external_component": {
+      "name": "metadata_external_component",
+      "schema": "",
+      "columns": {
+        "external_component_id": {
+          "name": "external_component_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "external_component_name": {
+          "name": "external_component_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "external_component_equipment_type": {
+          "name": "external_component_equipment_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "external_component_tier": {
+          "name": "external_component_tier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_external_component_base_stat": {
+      "name": "metadata_external_component_base_stat",
+      "schema": "",
+      "columns": {
+        "metadata_external_component_id": {
+          "name": "metadata_external_component_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stat_id": {
+          "name": "stat_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "stat_value": {
+          "name": "stat_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_external_component_set_option_detail": {
+      "name": "metadata_external_component_set_option_detail",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_external_component_id": {
+          "name": "metadata_external_component_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "set_option": {
+          "name": "set_option",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "set_count": {
+          "name": "set_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "set_option_effect": {
+          "name": "set_option_effect",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_module": {
+      "name": "metadata_module",
+      "schema": "",
+      "columns": {
+        "module_id": {
+          "name": "module_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "module_name": {
+          "name": "module_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_type": {
+          "name": "module_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_tier": {
+          "name": "module_tier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_socket_type": {
+          "name": "module_socket_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_class": {
+          "name": "module_class",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_module_stat": {
+      "name": "metadata_module_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "module_id": {
+          "name": "module_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "module_capacity": {
+          "name": "module_capacity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reactor": {
+      "name": "metadata_reactor",
+      "schema": "",
+      "columns": {
+        "reactor_id": {
+          "name": "reactor_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "reactor_name": {
+          "name": "reactor_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reactor_tier": {
+          "name": "reactor_tier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "optimized_condition_type": {
+          "name": "optimized_condition_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reactor_skill_power": {
+      "name": "metadata_reactor_skill_power",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "reactor_id": {
+          "name": "reactor_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "skill_atk_power": {
+          "name": "skill_atk_power",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sub_skill_atk_power": {
+          "name": "sub_skill_atk_power",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reactor_skill_power_enchant_effect": {
+      "name": "metadata_reactor_skill_power_enchant_effect",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_reactor_skill_power_id": {
+          "name": "metadata_reactor_skill_power_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stat_type": {
+          "name": "stat_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reactor_skill_power_skill_power_coefficient": {
+      "name": "metadata_reactor_skill_power_skill_power_coefficient",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_reactor_skill_power_id": {
+          "name": "metadata_reactor_skill_power_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "coefficient_stat_id": {
+          "name": "coefficient_stat_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "coefficient_stat_value": {
+          "name": "coefficient_stat_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reward": {
+      "name": "metadata_reward",
+      "schema": "",
+      "columns": {
+        "map_id": {
+          "name": "map_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "map_name": {
+          "name": "map_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reward_battle_zone": {
+      "name": "metadata_reward_battle_zone",
+      "schema": "",
+      "columns": {
+        "battle_zone_id": {
+          "name": "battle_zone_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "battle_zone_name": {
+          "name": "battle_zone_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metadata_reward_map_id": {
+          "name": "metadata_reward_map_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_reward_battle_zone_reward": {
+      "name": "metadata_reward_battle_zone_reward",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_reward_battle_zone_id": {
+          "name": "metadata_reward_battle_zone_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rotation": {
+          "name": "rotation",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reward_type": {
+          "name": "reward_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reactor_element_type": {
+          "name": "reactor_element_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_rounds_type": {
+          "name": "weapon_rounds_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "arche_type": {
+          "name": "arche_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_stat": {
+      "name": "metadata_stat",
+      "schema": "",
+      "columns": {
+        "stat_id": {
+          "name": "stat_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "stat_name": {
+          "name": "stat_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_title": {
+      "name": "metadata_title",
+      "schema": "",
+      "columns": {
+        "title_id": {
+          "name": "title_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title_name": {
+          "name": "title_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_void_battle": {
+      "name": "metadata_void_battle",
+      "schema": "",
+      "columns": {
+        "void_battle_id": {
+          "name": "void_battle_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "void_battle_name": {
+          "name": "void_battle_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_weapon": {
+      "name": "metadata_weapon",
+      "schema": "",
+      "columns": {
+        "weapon_id": {
+          "name": "weapon_id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "weapon_name": {
+          "name": "weapon_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_type": {
+          "name": "weapon_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_tier": {
+          "name": "weapon_tier",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_rounds_type": {
+          "name": "weapon_rounds_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_perk_ability_name": {
+          "name": "weapon_perk_ability_name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_perk_ability_description": {
+          "name": "weapon_perk_ability_description",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weapon_perk_ability_image_url": {
+          "name": "weapon_perk_ability_image_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_weapon_base_stat": {
+      "name": "metadata_weapon_base_stat",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_weapon_id": {
+          "name": "metadata_weapon_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stat_id": {
+          "name": "stat_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "stat_value": {
+          "name": "stat_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_weapon_firearm_atk": {
+      "name": "metadata_weapon_firearm_atk",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "metadata_weapon_id": {
+          "name": "metadata_weapon_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.metadata_weapon_firearm_atk_firearm": {
+      "name": "metadata_weapon_firearm_atk_firearm",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "metadata_weapon_firearm_atk_id": {
+          "name": "metadata_weapon_firearm_atk_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "firearm_atk_type": {
+          "name": "firearm_atk_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "firearm_atk_value": {
+          "name": "firearm_atk_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

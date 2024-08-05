@@ -1,0 +1,1 @@
+ALTER TABLE "metadata_weapon_firearm_atk" ALTER COLUMN "metadata_weapon_id" SET DATA TYPE varchar;

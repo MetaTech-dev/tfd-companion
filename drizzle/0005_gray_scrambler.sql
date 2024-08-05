@@ -1,0 +1,1 @@
+ALTER TABLE "metadata_reward_battle_zone" ALTER COLUMN "metadata_reward_map_id" SET DATA TYPE varchar;

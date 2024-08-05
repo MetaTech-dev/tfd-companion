@@ -1,0 +1,1 @@
+ALTER TABLE "metadata_external_component_set_option_detail" ALTER COLUMN "metadata_external_component_external_component_id" SET DATA TYPE varchar;

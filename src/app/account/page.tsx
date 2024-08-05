@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { getAccountId } from "@/data-sources/nexon/account";
+import { getAccountOuid } from "@/data-sources/nexon/account";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -15,7 +15,7 @@ export default function AccountPage() {
     if (!rawFormData.userName) {
       return redirect("/");
     }
-    const ouid = await getAccountId(rawFormData.userName?.toString());
+    const ouid = await getAccountOuid(rawFormData.userName?.toString());
 
     return redirect(`/account/${ouid}`);
   }

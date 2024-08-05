@@ -41,7 +41,6 @@ export default async function requestNexon({
       url.searchParams.append(key, params[key]);
     });
   }
-  console.log("Request URL before Fetch:", url.toString());
 
   // create config
   const config: RequestInit = {
@@ -51,7 +50,6 @@ export default async function requestNexon({
       accept: "application/json",
     },
   };
-  console.log("Request Config:", JSON.stringify(config, null, 2)); // Log the request config
 
   try {
     const response = await fetch(url, config);
